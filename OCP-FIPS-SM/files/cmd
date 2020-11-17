@@ -1,0 +1,13 @@
+DIR=$(cd $(dirname $0) ; pwd -P)
+ 
+(
+  cd "$DIR"
+
+  oc new-project istio-system
+  oc apply -f smcp.yaml
+  oc wait --timeout=-1s --for=condition=Ready smcp auth-install
+  oc new-project httpbin
+  oc apply -f smm.yaml
+  oc wait --timeout=-1s --for=condition=Ready smm default
+  oc apply -f httpbin.yaml
+)
