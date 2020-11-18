@@ -72,10 +72,11 @@ This will tell the cluster to enable fips on all the hosts.
 This can be verified once the cluster is up and running by doing the following:
 
 ---
-
-`#oc get nodes` +
-`#oc debug node/_<name_of_a_node>_` +
-`$fipscheck` +
+----
+# oc get nodes   
+# oc debug node/_<name_of_a_node>_  
+$ fipscheck  
+----
 
 - You should see the command return "fips is on"
 
@@ -96,9 +97,13 @@ Once the cluster comes up, login & verify that all status are [green]#green#.
   - httpbin.yaml
   - smcp.yaml
   - smm.yaml
-5. Run the cmd command `#sh cmd`
+5. Run the cmd command  
+----
+# sh cmd
+----
   - This will install and configure the Service Mesh Control Plane for you and install an application that can be tested to verify that the Service Mesh is functioning properly with FIPS enabled on the OCP cluster.
-6. Issue the following command to verify SMCP is working properly:
-  `curl -v http://$(oc get route -n istio-system istio-ingressgateway -o jsonpath='{.spec..host}')/headers`
+6. Issue the following command to verify SMCP is working properly:  
+----
+  curl -v http://$(oc get route -n istio-system istio-ingressgateway -o jsonpath='{.spec..host}')/headers
+----
   - This command should give a '200 ok' status if working properly
-
