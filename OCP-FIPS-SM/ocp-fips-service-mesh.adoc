@@ -11,7 +11,7 @@ From the cli on the bastion host create an install-config with the following com
 
 ---
 
-`#./openshift-install create install-config --dir=_<operating_dir>_ --log-level=debug` +
+`#./openshift-install create install-config --dir=_<operating_dir>_ --log-level=debug`  
 
 ---
 
