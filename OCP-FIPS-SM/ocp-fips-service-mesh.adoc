@@ -101,7 +101,8 @@ Once the cluster comes up, login & verify that all status are [green]#green#.
 ----
 # sh cmd
 ----
-  - This will install and configure the Service Mesh Control Plane for you and install an application that can be tested to verify that the Service Mesh is functioning properly with FIPS enabled on the OCP cluster.
+  - This will install and configure the Service Mesh Control Plane for you and install an application that can be tested to verify that the Service Mesh is functioning properly with FIPS enabled on the OCP cluster.  
+
 6. Issue the following command to verify SMCP is working properly:  
 ----
   curl -v http://$(oc get route -n istio-system istio-ingressgateway -o jsonpath='{.spec..host}')/headers
