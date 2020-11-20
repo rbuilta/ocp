@@ -87,23 +87,23 @@ Once the cluster comes up, login & verify that all status are [green]#green#.
 
 *The following steps are for installing, configuring and testing the Service Mesh Control Plane*
 
-1. Go to 'Operator Hub' and serch for the following list & install them with the defaults selected
+. Go to 'Operator Hub' and serch for the following list & install them with the defaults selected
   - Elasticserch Operator - provided by Red Hat
   - Red Hat OpenShift Jaeger - provided by Red Hat
   - Red Hat OpenShift Service Mesh - provided by Red Hat
-2. Verify that the install(s) completed successfully
-3. Use the httpbin.tar file and copy to your bastion host
-4. Un-tar the file - there should be the following files:
+. Verify that the install(s) completed successfully
+. Use the httpbin.tar file and copy to your bastion host
+. Un-tar the file - there should be the following files:
   - cmd
   - httpbin.yaml
   - smcp.yaml
   - smm.yaml
-5. Run the cmd command  
+. Run the cmd command
+----
+# sh ./cmd
+----
   - This will install and configure the Service Mesh Control Plane for you and install an application that can be tested to verify that the Service Mesh is functioning properly with FIPS enabled on the OCP cluster.  
-----
-# sh cmd
-----
-6. Issue the following command to verify SMCP is working properly:  
+. Issue the following command to verify SMCP is working properly:  
 ----
   curl -v http://$(oc get route -n istio-system istio-ingressgateway -o jsonpath='{.spec..host}')/headers
 ----
