@@ -22,11 +22,11 @@ This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure
 .Installation of Operator: Advanced Cluster Management for Kubernetes
 
 ****
-
-1. In the OCP cluster that ACM will be installed go to 'OperaterHub' and search for "Advanced Cluster Management for Kubernetes"
+.Ordered
+. In the OCP cluster that ACM will be installed go to 'OperaterHub' and search for "Advanced Cluster Management for Kubernetes"
     - Select it and keep the defaults - then *Install*
     - Wait for installation to finish - should only take about 3 minutes
-2. While the operator is being installed there is a need to create a Secret for the 'MultiClusterHub' to use
+. While the operator is being installed there is a need to create a Secret for the 'MultiClusterHub' to use
     - On the left select 'Workloads' then select 'Secrets'
     - Verify that the 'Project' dropdown has 'open-cluster-management' so the secret can be used by the 'MultiClusterHub'
     - Inside of 'Secrets' click the "Create" in the upper right and then select 'Image Pull Secret' from the dropdown
@@ -34,17 +34,17 @@ This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure
     - Then change the 'Authentication Type' to "Upload Configuration File"
         * You can either choose to upload a file via the 'Browse' or cut and paste the pull-secret that you used for building the OCP Cluster
     - Click 'Create'
-3. Once the installation of the operator has finished and it shows "Success" & the secret is created, click on 'Installed Operators' then click on 'MultiClusterHub'
-4. Inside 'MultiClusterHub' click on *'Create MultiClusterHub'* 
-5. Leave the 'Name' section alone - it *MUST* be named 'multiclusterhub'
-6. Click on 'Advanced Configuration' drop down
+. Once the installation of the operator has finished and it shows "Success" & the secret is created, click on 'Installed Operators' then click on 'MultiClusterHub'
+. Inside 'MultiClusterHub' click on *'Create MultiClusterHub'* 
+. Leave the 'Name' section alone - it *MUST* be named 'multiclusterhub'
+. Click on 'Advanced Configuration' drop down
     - Under 'Image Pull Secret' drop down select the 'Secret' name you created in the previous step
-7. Then click 'Create'
+. Then click 'Create'
     - This process will take about 10 min for OCP to finish the install/configuration of the 'MultiClusterHub'
     - Once the 'Status' shows "Phase: Running" you shoud be good-to-go
-8. Select 'Networking' on the left and then 'Routes'
+. Select 'Networking' on the left and then 'Routes'
     - *AGAIN* Verify that the 'Project' dropdown at the top of the screen has 'open-cluster-management'
-9. Inside of 'Routes' click on the 'Location' link to bring up the 'multicloud-console' to access ACM
-10. Login to the 'multicloud-console' page with your OCP Cluster Kubeadmin username/password
+. Inside of 'Routes' click on the 'Location' link to bring up the 'multicloud-console' to access ACM
+. Login to the 'multicloud-console' page with your OCP Cluster Kubeadmin username/password
 
 ****
