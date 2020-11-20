@@ -1,7 +1,9 @@
 ============
+Intro
+-------
 
 This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure Gov Cloud. Red Hat Advanced Cluster Management for Kubernetes provides end-to-end management visibility and control to manage your Kubernetes environment. Provides management capabilities for cluster creation, application lifecycle, and provide security and compliance for all of them across data centers and hybrid cloud environments. Clusters and applications are all visible and managed from a single console, with built-in security policies. Run your operations from anywhere that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
-
+-------
 ============
 
 .Assumptions:  
