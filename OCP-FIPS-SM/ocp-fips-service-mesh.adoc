@@ -1,11 +1,12 @@
-This is a step by step build out for OpenShift 4.6 with FIPS enabled + Service Mesh
+This is a step by step build out for OpenShift 4.6 with FIPS enabled + Service Mesh.  
 
-*NOTE: This build is specifically on VMWare ESXi 6.7*
+*NOTE: This build is specifically on VMWare ESXi 6.7*  
 
-I will not go through the build of the bastion host - you can find this in the OpenShift docs here: 
-
-https://access.redhat.com/documentation/en-us/openshift_container_platform/4.6/html-single/installing/index
-
+.Assumptions:  
+  - You know how to build OCP via IPI  
+  - You have a VSphere 6.7 env to build into 
+  - You have already built the bastion host & configured DNS to support this build  
+    * If not see:  https://access.redhat.com/documentation/en-us/openshift_container_platform/4.6/html-single/installing/index
 
 From the cli on the bastion host create an install-config with the following command:
 
@@ -67,7 +68,7 @@ sshKey: ''
 
 ---
 
-**Please note the 'fips: true'** +
+**Please note the 'fips: true'**  
 This will tell the cluster to enable fips on all the hosts. 
 This can be verified once the cluster is up and running by doing the following:
 

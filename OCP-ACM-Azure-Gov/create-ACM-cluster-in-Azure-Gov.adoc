@@ -20,6 +20,7 @@ This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure
 
 
 .Installation of Operator: Advanced Cluster Management for Kubernetes
+
 ****
 
 1. In the OCP cluster that ACM will be installed go to 'OperaterHub' and search for "Advanced Cluster Management for Kubernetes"
