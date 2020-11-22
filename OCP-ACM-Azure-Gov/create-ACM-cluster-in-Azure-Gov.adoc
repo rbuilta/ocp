@@ -49,6 +49,8 @@ This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure
 . Select 'Networking' on the left and then 'Routes'
     - *AGAIN* Verify that the 'Project' dropdown at the top of the screen has 'open-cluster-management'
 . Inside of 'Routes' click on the 'Location' link to bring up the 'multicloud-console' to access ACM
-. Login to the 'multicloud-console' page with your OCP Cluster Kubeadmin username/password
+. Login to the 'multicloud-console' page with your OCP Cluster kubeadmin username/password
+. After logged into the 'multicloud-console' look in the upper right corner for the "VisualWebTerminal"
+  image:../images/VisualWebTerminal.png[]
 
 ****
