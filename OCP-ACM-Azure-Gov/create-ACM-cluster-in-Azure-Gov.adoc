@@ -50,7 +50,19 @@ This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure
     - *AGAIN* Verify that the 'Project' dropdown at the top of the screen has 'open-cluster-management'
 . Inside of 'Routes' click on the 'Location' link to bring up the 'multicloud-console' to access ACM
 . Login to the 'multicloud-console' page with your OCP Cluster kubeadmin username/password
-. After logged into the 'multicloud-console' look in the upper right corner for the "VisualWebTerminal"
+. After you've logged into the 'multicloud-console' look in the upper right corner for the "VisualWebTerminal" and click it
   image:images/Visual-Web-Terminal.png[]
+. Click on the 'Open in a new browser Tab' in the drop down
+  image:images/Visual-Web-Terminal-New-Tab.png[]
+. Next you need to do a 'oc get ClusterImageSet' on the CLI
+  image:images/oc-get-ClusterImageSet.png[]
+. You will then see a list of images - *NOTE - the ocp-release:4.6.x* image that was previously not in the original drop down list
+  image:images/VisualWebTerminal-View-Images.png[]
+. To make the image visible to be able to deploy to Azure Gov the yaml needs to be edited to allow it to be visible - do this by the following:
+  image:images/Edit-ClusterImageSet-visable-false.png[]
+  *NOTE - the 'Visible: "false"'* This needs to be set to "true"
+  image:images/
+  Make the edits and then select 'Apply Changes'
+  image:images/ClusterImageSet-Apply-Changes.png[]
 
 ****
