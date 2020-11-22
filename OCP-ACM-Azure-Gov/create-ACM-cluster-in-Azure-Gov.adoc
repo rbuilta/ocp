@@ -5,7 +5,7 @@ This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure
 -------
 
 
-.Assumptions:  
+.Assumptions:
 - Have a OCP Cluster already built on *OCP 4.6.x*
 - Connection to the internet for 'Operator Hub' to be able to pull operators
 - Access to the following info:
@@ -15,15 +15,16 @@ This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure
         ** TenantID
         ** SubscriptionID
         ** ClientID
-        ** ClientSecret     
+        ** ClientSecret
 
 
 
 
 === Installation of Advanced Cluster Management for Kubernetes
+:hardbreaks:
 
 ****
-.Installation of ACM Operator & Configuration of MultiClusterHub  
+.Installation of ACM Operator & Configuration of MultiClusterHub
 
 
 . In the OCP cluster that ACM will be installed go to 'OperaterHub' and search for "Advanced Cluster Management for Kubernetes"
@@ -38,7 +39,7 @@ This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure
         * You can either choose to upload a file via the 'Browse' or cut and paste the pull-secret that you used for building the OCP Cluster
     - Click 'Create'
 . Once the installation of the operator has finished and it shows "Success" & the secret is created, click on 'Installed Operators' then click on 'MultiClusterHub'
-. Inside 'MultiClusterHub' click on *'Create MultiClusterHub'* 
+. Inside 'MultiClusterHub' click on *'Create MultiClusterHub'*
 . Leave the 'Name' section alone - it *MUST* be named 'multiclusterhub'
 . Click on 'Advanced Configuration' drop down
     - Under 'Image Pull Secret' drop down select the 'Secret' name you created in the previous step
