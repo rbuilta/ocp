@@ -29,7 +29,7 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
 
 ****
 .Installation of ACM Operator & Configuration of MultiClusterHub
-
+:hardbreaks:
 
 . In the OCP cluster that ACM will be installed go to 'OperaterHub' and search for "Advanced Cluster Management for Kubernetes"
     - Select it and keep the defaults - then *Install*
