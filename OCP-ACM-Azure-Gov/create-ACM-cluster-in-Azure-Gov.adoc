@@ -96,6 +96,6 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
 **As of this writing the 'destroy' cluster cababilities are not working for Azure Gov from ACM - you will need to destroy the cluster from ACM as well as go into Azure Gov UI and destroy the cluster**
 
 *BUGZILLA's:*
-- https://bugzilla.redhat.com/show_bug.cgi?id=1900728
-- https://bugzilla.redhat.com/show_bug.cgi?id=1899719
+- https://bugzilla.redhat.com/show_bug.cgi?id=1900728 - Bug for ACM not able to destroy a cluster it had deployed to Azure Gov
+- https://bugzilla.redhat.com/show_bug.cgi?id=1899719 - Bug for ACM UI to take into account the Azure Gov options not just Commercial
 ****
