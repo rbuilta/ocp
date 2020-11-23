@@ -64,5 +64,27 @@ This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure
   image:images/Edit-ClusterImageSet-visible-true.png[]
   Make the edits and then select 'Apply Changes'
   image:images/ClusterImageSet-Apply-Changes.png[]
+. Once the changes have been applied you are now able to go back to the Create Cluster form and start the build
+  In the 'add cluster' => 'create cluster' UI make sure that the "YAML:On" is enabled
+  image:images/Create-a-Cluster-YAML-on.png[]
+  This will be needed to edit the YAML for Azure Gov specific line of code
+. Fill out all the required info - for *Microsoft Azure*
+. In the 'Node pools' drop down make the following changes:
+  * In the 'Worker pool' delete the 'zones' *these are not needed for Azure Gov*
+  * For the 'Region' box you will need to put in one of the Azure Gov specific regions. What is currently populated is for Azure Commercial
+    - usgovvirginia
+    - usgovarizona
+    - usgoviowa
+    - usgovtexas
+. Once all forms are filled out properly you will need to add a line to the 'Cluster YAML' box on the right
+  image:images/Create-a-Cluster-YAML-box.png[]
+. Under 'Cluster YAML' ==> 'install-config' file, add the following line under *spec.platform.azure*
+  "cloudName: AzureUSGovernmentCloud"
+  image:images/Create-a-Cluster-edit-install-config-yaml.png[]
+. Under 'Cluster YAML' ==> 'cluster' file, add the following line under *spec.platform.azure*
+  "cloudName: AzureUSGovernmentCloud"
+  image:images/Create-a-Cluster-edit-cluster-yaml.png[]
+. Everything is filled in properly - you can now click 'Create' in the upper right
+  The multicloud console will then redirect you to a 'creating' screen and will give you the opportunity to view the logs in the ACM OCP Cluster you are using
 
 ****
