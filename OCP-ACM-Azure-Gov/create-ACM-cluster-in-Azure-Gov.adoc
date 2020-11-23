@@ -1,4 +1,4 @@
-Introduction
+=== Introduction
 -------
 This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure Gov Cloud. Red Hat Advanced
 Cluster Management for Kubernetes provides end-to-end management visibility and control to manage your Kubernetes
@@ -10,23 +10,22 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
 
 
 .Assumptions:
-- Have a OCP Cluster already built on *OCP 4.6.x*
-- This assumes you are connected to the internet for deploying a new cluster via IPI using ACM
-- Connection to the internet for 'Operator Hub' to be able to pull operators
-- Access to the following info:
-    * OCP pull-secret
-    * Public & Priv ssh keys
-    * Azure Gov Creds
-        ** TenantID
-        ** SubscriptionID
-        ** ClientID
-        ** ClientSecret
+  - Have a OCP Cluster already built on *OCP 4.6.x*
+  - This assumes you are connected to the internet for deploying a new cluster via IPI using ACM
+  - Connection to the internet for 'Operator Hub' to be able to pull operators
+  - Access to the following info:
+      * OCP pull-secret
+      * Public & Priv ssh keys
+      * Azure Gov Creds
+          ** TenantID
+          ** SubscriptionID
+          ** ClientID
+          ** ClientSecret
 
 
 
 
 === Installation of Advanced Cluster Management for Kubernetes
-:hardbreaks:
 
 ****
 .Installation of ACM Operator & Configuration of MultiClusterHub
@@ -71,7 +70,7 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
   image:images/ClusterImageSet-Apply-Changes.png[]
 . Once the changes have been applied you are now able to go back to the Create Cluster form and start the build
   In the 'add cluster' => 'create cluster' UI make sure that the "YAML:On" is enabled
-  image:images/Create-a-Cluster-YAML-on.png[]
+  image:images/Create-a-Cluster-YAML-on.png[] +
   This will be needed to edit the YAML for Azure Gov specific line of code
 . Fill out all the required info - for *Microsoft Azure*
 . In the 'Node pools' drop down make the following changes:
