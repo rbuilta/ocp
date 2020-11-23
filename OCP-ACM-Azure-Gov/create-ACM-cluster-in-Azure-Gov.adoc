@@ -11,6 +11,7 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
 
 .Assumptions:
 - Have a OCP Cluster already built on *OCP 4.6.x*
+- This assumes you are connected to the internet for deploying a new cluster via IPI using ACM
 - Connection to the internet for 'Operator Hub' to be able to pull operators
 - Access to the following info:
     * OCP pull-secret
@@ -91,4 +92,10 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
 . Everything is filled in properly - you can now click 'Create' in the upper right
   The multicloud console will then redirect you to a 'creating' screen and will give you the opportunity to view the logs in the ACM OCP Cluster you are using
 
+
+**As of this writing the 'destroy' cluster cababilities are not working for Azure Gov from ACM - you will need to destroy the cluster from ACM as well as go into Azure Gov UI and destroy the cluster**
+
+*BUGZILLA's:*
+- https://bugzilla.redhat.com/show_bug.cgi?id=1900728
+- https://bugzilla.redhat.com/show_bug.cgi?id=1899719
 ****
