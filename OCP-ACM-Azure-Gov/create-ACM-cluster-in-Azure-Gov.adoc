@@ -50,7 +50,7 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
     - Under 'Image Pull Secret' drop down select the 'Secret' name you created in the previous step
 . Then click 'Create'
     - This process will take about 10 min for OCP to finish the install/configuration of the 'MultiClusterHub'
-    - Once the 'Status' shows "Phase: Running" you shoud be good-to-go
+    - Once the 'Status' shows "Phase: Running" you should be good-to-go
 . Select 'Networking' on the left and then 'Routes'
     - *AGAIN* Verify that the 'Project' dropdown at the top of the screen has 'open-cluster-management'
 . Inside of 'Routes' click on the 'Location' link to bring up the 'multicloud-console' to access ACM
