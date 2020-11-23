@@ -93,7 +93,8 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
   The multicloud console will then redirect you to a 'creating' screen and will give you the opportunity to view the logs in the ACM OCP Cluster you are using
 
 
-**As of this writing the 'destroy' cluster cababilities are not working for Azure Gov from ACM - you will need to destroy the cluster from ACM as well as go into Azure Gov UI and destroy the cluster**
+**As of this writing the 'destroy' cluster capabilities are not working for Azure Gov from ACM - you will need to destroy the cluster from ACM as well as go into Azure Gov UI and destroy the cluster**
+**Also as far as the cluster showing up in ACM - it keeps a status of "importing cluster" even if the cluster is up and running**
 
 *BUGZILLA's:*
 - https://bugzilla.redhat.com/show_bug.cgi?id=1900728 - Bug for ACM not able to destroy a cluster it had deployed to Azure Gov
