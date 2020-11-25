@@ -11,6 +11,9 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
 
 .Assumptions:
   - Have a OCP Cluster already built on *OCP 4.6.x*
+      * Default resource(s) for OCP are *NOT* able to accommodate ACM's needs
+        ** CPU needs to be bumped up to 4 vCPU
+        ** RAM needs to be bumped to 16GB
   - This assumes you are connected to the internet for deploying a new cluster via IPI using ACM
   - Connection to the internet for 'Operator Hub' to be able to pull operators
   - Access to the following info:
