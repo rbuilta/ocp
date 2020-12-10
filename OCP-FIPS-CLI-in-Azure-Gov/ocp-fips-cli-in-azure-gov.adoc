@@ -18,6 +18,11 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
   .
 
 .Installation:
-   . Verify that you are attached to the proper Azure Cloud
-    - Run `az cloud list -o table`
-    image:images/az-cloud-list-table.png[]
+ . Verify that you are attached to the proper Azure Cloud
+   - Run `az cloud list -o table`
+  image:images/az-cloud-list-table.png[]
+ . You will need to be attached to the "AzureUSGovernment" cloud - if you are not then type the following
+   - `az cloud set --name AzureUSGovernment --profile latest`
+   - This will set the 'IsActive' to the correct cloud provider by Azure
+   - You will now see a "True" for "AzureUSGovernment" +
+IMPORTANT: **If you do not have the proper Azure Cloud set the rest of the configuration will not work properly**
