@@ -25,4 +25,5 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
    - `az cloud set --name AzureUSGovernment --profile latest`
    - This will set the 'IsActive' to the correct cloud provider by Azure
    - You will now see a "True" for "AzureUSGovernment" +
+
 IMPORTANT: **If you do not have the proper Azure Cloud set the rest of the configuration will not work properly**
