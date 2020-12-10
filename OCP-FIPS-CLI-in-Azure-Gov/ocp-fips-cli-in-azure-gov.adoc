@@ -26,12 +26,12 @@ This is a quick step-by-step guide to deploy a cluster to Azure Gov Cloud via CL
    - `az cloud set --name AzureUSGovernment --profile latest`
    - This will set the 'IsActive' to the correct cloud provider by Azure
    - You will now see a "True" for "AzureUSGovernment" +
-
++
 IMPORTANT: **If you do not have the proper Azure Cloud set the rest of the configuration will not work properly**
 
   . Next you will create the 'install-config.yaml' file. Below is an example of a basic install-config.yaml file
     - You will need to
-
++
   ---
 .install-config.yaml
 [source,yaml]
@@ -79,11 +79,11 @@ fips: true
   sshKey: ''
 
   ---
-
++
 IMPORTANT: **Make sure to copy & paste the 'pull-secret' & the 'sshKey' into the file or the installation will fail**
-
++
 IMPORTANT: **Take special note of the "cloudName:", this line must exist in the install-config for OpenShift to know where to place the newly created cluster**
-
++
 . The next step will be to deploy the cluster by running the following command +
   `./openshift-install create cluster --dir=_<install-dir>_ --log-level=debug`
 
