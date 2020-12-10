@@ -1,11 +1,6 @@
 === Introduction
 -------
-This is a step-by-step guide to allow OpenShift ACM to deploy a cluster to Azure Gov Cloud. Red Hat Advanced
-Cluster Management for Kubernetes provides end-to-end management visibility and control to manage your Kubernetes
-environment. Provides management capabilities for cluster creation, application lifecycle, and provide security
-and compliance for all of them across data centers and hybrid cloud environments. Clusters and applications are
-all visible and managed from a single console, with built-in security policies. Run your operations from anywhere
-that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
+This is a quick step-by-step guide to deploy a cluster to Azure Gov Cloud via CLI from a bastion host.
 -------
 
 
@@ -14,10 +9,16 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
     - The list of pre-reqs can be found here: https://access.redhat.com/documentation/en-us/openshift_container_platform/4.6/html-single/installing_on_azure/index#installing-azure-account
   . Have the 'az' cli tool for Azure installed on the bastion host
   . Have the 'oc' cli tool for OpenShift installed on the bastion host
-  . Having direct access to the internet for the 'openshift-install' command to download the proper install configs
-  .
+  . Having direct access to the internet for the 'openshift-install' command to download the proper install configs]
+  . Have a ssh-key created for the installation config to use
+  . Retrieve the 'pull-secret' from OpenShift Subscription for the installation config to use
+  . Retrieve the _<baseDomainResourceGroupName>_ for the installation config
+  . Retrieve the _<region>_ for the installation config
 
-.Installation:
+
+
+
+=== Installation:
  . Verify that you are attached to the proper Azure Cloud
    - Run `az cloud list -o table`
   image:images/az-cloud-list-table.png[]
@@ -27,3 +28,65 @@ that Red Hat OpenShift runs, and manage any Kubernetes cluster in your fleet.
    - You will now see a "True" for "AzureUSGovernment" +
 
 IMPORTANT: **If you do not have the proper Azure Cloud set the rest of the configuration will not work properly**
+
+  . Next you will create the 'install-config.yaml' file. Below is an example of a basic install-config.yaml file
+    - You will need to
+
+  ---
+.install-config.yaml
+[source,yaml]
+
+  apiVersion: v1
+baseDomain: rhocp.us
+compute:
+- hyperthreading: Enabled
+  name: worker
+  platform:
+    azure:
+      type: Standard_D2s_v3
+      osDisk:
+        diskSizeGB: 512
+  replicas: 3
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  platform:
+    azure:
+      osDisk:
+        diskSizeGB: 512
+      type: Standard_D8s_v3
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: vaocp
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  azure:
+    baseDomainResourceGroupName: MAG-GlobalDNS
+    region: usgovvirginia
+    cloudName: AzureUSGovernmentCloud
+publish: External
+fips: true
+  pullSecret: ''
+  sshKey: ''
+
+  ---
+
+IMPORTANT: **Make sure to copy & paste the 'pull-secret' & the 'sshKey' into the file or the installation will fail**
+
+IMPORTANT: **Take special note of the "cloudName:", this line must exist in the install-config for OpenShift to know where to place the newly created cluster**
+
+. The next step will be to deploy the cluster by running the following command +
+  `./openshift-install create cluster --dir=_<install-dir>_ --log-level=debug`
+
+. This command will take several minutes to complete. You will be able to watch the debug info on the screen and/or the progress in the Azure Gov UI
+
+NOTE: **Azure Gov is fairly slow to install to, this is not reflective of OpenShift itself but of the Cloud Provider response time**
